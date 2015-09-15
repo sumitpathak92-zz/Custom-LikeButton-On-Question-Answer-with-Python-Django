@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse
 from .models import Question
 from buttonapp.models import Choice
 from django.http.response import HttpResponseRedirect
