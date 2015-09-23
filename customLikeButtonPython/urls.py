@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from likeapp.views import hello, like, homepage_view, server_time, hours_ahead
 
 urlpatterns = [
+    url(r'^$', homepage_view),
+    url(r'^timenow/$', server_time),
+    url(r'^timenow/plus/(\d{1,2})/$', hours_ahead),         
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^likeapp/$', hello), #URL pattern    
+    url(r'^likeapp/like/$', like),
     url(r'^buttons/', include('buttonapp.urls', namespace="buttonapp")),
 ]

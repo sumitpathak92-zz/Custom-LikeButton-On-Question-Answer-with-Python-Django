@@ -1,0 +1,38 @@
+REQUEST object contains info about the current web request that triggered this view
+Each view always takes an HttpRequest object as its first parameter.
+HttpResponse is http response object that is instantiated with text "hello sumit"
+URLConfig is table of contents for django website.
+it is basically mapping between URL and the view functions that is called for those URLs
+Other thing about URLConfig is we pass 'hello' or 'like' view function as an object
+without calling the function. It is a key feature of python,
+functions are first class objects which means you can pass them around like any other variables
+
+HOW DOES DJANGO PROCESSES THE REQUEST???
+
+In summary:
+
+--A request comes in to /hello/.
+--Django determines the root URLconf by looking at the ROOT_URLCONF setting.
+--Django looks at all of the URLpatterns in the URLconf for the first one that matches /hello/.
+--If it finds a match, it calls the associated view function.
+--The view function returns an HttpResponse.
+--Django converts the HttpResponse to the proper HTTP response, which results in a Web page.
+
+The Regex(\d{1, 2}) captures data from the matched text inside the
+parentheses and pass it to the single view function.
+
+Offset is the string captured by the parentheses in the URLpattern.
+
+
+
+##################DJANGO TEMPLATE SYSTEM###############################
+
+
+1) text surrounded by {{ }} is a variable
+2) text surrounded by {% %} is a template tag, it tells the template system to do something. {% for item in item_list %}
+-- > template system is just a Python library that can be used anywhere not just django views.
+Using Template system:
+--create a Template object by providing raw template code as a string.
+--call render() method of Template object with a given set of variables (context). Returns a fully rendered template as a string,
+with all variables and template tags evaluated according to the context.
+
