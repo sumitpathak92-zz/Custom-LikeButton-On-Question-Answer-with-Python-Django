@@ -3,6 +3,7 @@ from django.http import HttpResponse, Http404
 
 from django.template import Template, Context 
 import datetime
+from django.template.loader import get_template
 # Create your views here.
 
 def hello(request):#request object contains info about the current web request that triggered this view
@@ -19,7 +20,7 @@ def homepage_view(request):
 
 def server_time(request):
     timenow = datetime.datetime.now()
-    t = Template("<html><body> the time right now is {{ current_time }}</body></html")
+    t = get_template('current_datetime.html')
     html = t.render(Context({'current_time' : timenow}))
     return HttpResponse(html)
 
